@@ -13,4 +13,8 @@ def read_config():
 				pvar.arrconf[key] = val
 
 def show_config():
-  
+	data = pvar.arrconf[]
+	for value in data:
+		print(value)
+	print()
+
