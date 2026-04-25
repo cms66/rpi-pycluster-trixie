@@ -2,6 +2,7 @@
 
 import os
 import python.general as pgen
+import python.hardware as phdw
 import python.variables as pvar
 	
 def main():
