@@ -100,6 +100,11 @@ def create_venv():
 	os.system("chown -R " + usrname + ":" + usrname + " /home/" + usrname + "/.venv")
 	input("Python Virtual Environment created, press enter to continue")
 
+def setup_fail2ban():
+	os.system("cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local")
+	os.system("cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local")
+	input("Fail2ban setup done, press enter to continue")	
+
 def main():
 	read_config()
 	set_default_shell()
