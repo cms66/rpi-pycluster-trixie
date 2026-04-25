@@ -103,6 +103,7 @@ def create_venv():
 def setup_fail2ban():
 	os.system("cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local")
 	os.system("cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local")
+	# TODO modify local config
 	input("Fail2ban setup done, press enter to continue")	
 
 def main():
@@ -125,7 +126,7 @@ def main():
 	setup_firewall()
 	update_hosts()
 	create_venv()
-	# TODO setup_fail2ban
+	setup_fail2ban()
 	os.system("chown -R " + usrname + ":" + usrname + " /data/*")
 	input("Setup done, press enter to continue (reboot recommended)")
 	os.remove(__file__)
