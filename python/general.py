@@ -13,8 +13,8 @@ def read_config():
 				pvar.arrconf[key] = val
 
 def show_config():
-	data = pvar.arrconf[]
+	data = pvar.arrconf
 	for value in data:
 		print(value)
 	print()
-
+	print(pvar.arrconf['gitrepo']) # Works
