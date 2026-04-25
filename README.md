@@ -4,7 +4,7 @@ Python setup and management for a home RPi cluster (Debian Trixie)
 ## First setup
 - Burn image
 - Create files in visible partition
-- - hosts.txt
+  - hosts.txt
   - custom.conf
 - Login as created user and run 
 ```
