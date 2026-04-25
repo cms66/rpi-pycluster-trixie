@@ -7,7 +7,8 @@ import python.variables as pvar
 	
 def main():
 	pgen.read_config()
-	pgen.show_menu(pvar.mnuMainFull)
+	pgen.show_config()
+	#pgen.show_menu(pvar.mnuMainFull)
 
 if __name__ == "__main__":
 	main()
