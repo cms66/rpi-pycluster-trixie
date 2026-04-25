@@ -1,5 +1,7 @@
 # Hardware functions
 
+import python.variables as pvar
+
 def setup_cam_csi():
 	read -p "CSI Cam = TODO - press enter to continue"
 
