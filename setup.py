@@ -81,6 +81,25 @@ def update_bashrc():
 		f.write("alias mps='sudo python " + gitdir + "/main.py'\n")
 	input("bashrc update done, press enter to continue")
 
+def update_hosts():
+	with open("/etc/hosts", "w") as fout:
+		fout.write("127.0.0.1	localhost\n")
+		fout.write("127.0.1.1	" + hstname + "\n")
+		fout.write("# Local nodes\n")
+		with open("/boot/firmware/hosts.txt", "r") as fin:
+			for line in fin:
+				fout.write(line)                
+	input("hosts update done, press enter to continue")
+
+def create_venv():
+	os.system("python -m venv --system-site-packages /home/" + usrname + "/.venv")
+	# Create Bash shortcuts to activate/deactivate Virtual Envirnment
+	with open("/home/" + usrname + "/.bashrc", "a") as fout:
+		fout.write("alias mvp='source ~/.venv/bin/activate'\n")
+		fout.write("alias dvp='deactivate'\n")
+	os.system("chown -R " + usrname + ":" + usrname + " /home/" + usrname + "/.venv")
+	input("Python Virtual Environment created, press enter to continue")
+
 def main():
 	read_config()
 	set_default_shell()
@@ -99,10 +118,9 @@ def main():
 	setup_git()
 	update_bashrc()
 	setup_firewall()
-	strdir = arrconf["gitlocaldir"] + "/" +  arrconf["gitrepo"].strip()
-	gitdir = "".join(strdir.splitlines())
-	strcmd = "source " + gitdir + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
-	os.system(strcmd)
+	update_hosts()
+	create_venv()
+	# TODO setup_fail2ban
 	os.system("chown -R " + usrname + ":" + usrname + " /data/*")
 	input("Setup done, press enter to continue (reboot recommended)")
 	os.remove(__file__)
