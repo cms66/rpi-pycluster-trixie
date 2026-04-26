@@ -34,11 +34,14 @@ def add_nfs_local():
 	if usropt == "s": # System share
 		defdir = pvar.arrconf['defsysdir']
 		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
-		nfsdir = (defdir, usrdir)[usrdir > ""]
-	else: # Data share
+		nfsdir = defdir if usrdir <= "" else usrdir
+	elif usropt == "d": # Data share
 		defdir = pvar.arrconf['defdatadir']
 		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
-		nfsdir = (defdir, usrdir)[usrdir != ""]
+		nfsdir = defdir if usrdir <= "" else usrdir
+	else:
+		input("Invalid entry - press enter to continue")
+		return
 	input(nfsdir + " selected - press enter to continue")
 	with open('/etc/exports', 'a') as f: # Check for existing export and add if not
 		content = f.read()
@@ -59,11 +62,17 @@ def add_nfs_remote():
 		nfsdir = defdir if usrdir <= "" else usrdir
 	elif usropt == "d": # Data share
 		defdir = pvar.arrconf['defdatadir']
+		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
+		nfsdir = defdir if usrdir <= "" else usrdir
 	else:
-		input("Invalid entry")
+		input("Invalid entry - press enter to continue")
 		return
 	print("Remote node: " + remnode)
 	print("Def Remote directory: " + defdir)
 	print("User Remote directory: " + usrdir)
 	print("NFS Remote directory: " + nfsdir)
+	with open("/etc/fstab", "a") as f:
+		#strmount = remnode + ":" + nfsdir + " " + nfsdir + "    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0"
+		f.write(remnode + ":" + nfsdir + " " + nfsdir + "    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0")
+	#echo "$remnode:$mntdir $mntdir    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0" >> /etc/fstab
 	input("NFS remote mount done - press enter to continue")
