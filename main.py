@@ -7,9 +7,9 @@ import python.variables as pvar
 	
 def main():
 	pgen.read_config()
-	pgen.show_config() # Test function
-	phdw.setup_cam_csi() # Works
-	#pgen.show_menu(pvar.mnuMainFull)
+	#pgen.show_config() # Test function
+	#phdw.setup_cam_csi() # Works
+	pgen.show_menu(pvar.mnuMainFull)
 
 if __name__ == "__main__":
 	main()
