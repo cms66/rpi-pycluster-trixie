@@ -44,8 +44,9 @@ def add_nfs_local():
 		if nfsdir in content:
 			print('Export already exists')
 		else:
-			f.write(nfsdir + " " + pvar.arrconf['subnet'] + "(rw,sync,no_subtree_check,no_root_squash)")
-			os.system("exportfs -ra")
+			#f.write(nfsdir + " " + pvar.arrconf['subnet'] + "(rw,sync,no_subtree_check,no_root_squash)")
+			#os.system("exportfs -ra")
+			print('Export doesn't exist')
 	input(nfsdir + " NFS share added - press enter to continue")
 
 def add_nfs_remote():
