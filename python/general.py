@@ -4,6 +4,7 @@ import os
 import python.variables as pvar
 import python.hardware as phdw
 import python.network as pnet
+import python.security as psec
 
 def read_config():
 	conf = "/boot/firmware/custom.conf"
