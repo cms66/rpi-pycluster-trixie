@@ -33,3 +33,7 @@ mnuNetworkFull=[
 "NFS - Add remote mount#pnet.add_nfs_remote()",
 "Back|Quit#"]
 
+mnuSecurityFull=[
+"Setup - Security menu#",
+"UFW - Status#psec.get_ufw_status()",
+"Back|Quit#"]
