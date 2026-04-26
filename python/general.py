@@ -20,4 +20,32 @@ def show_config():
 	print(pvar.arrconf['gitrepo']) # Works
 
 def show_menu(menu):
-	input("TODO show_menu - press enter to continue")
+	prompt = "Select option: "
+	while True:
+		os.system("clear")
+		for item in menu: # Show menu
+			if menu.index(item) == 0: # Print underlined title + hostname
+				#print("\u0332".join(item.split("#")[0] + " (" + pvar.hstname + " - " + pvar.usrname + )"))
+				print("\u0332".join(item.split("#")[0] + " (" + pvar.hstname + " - " + pvar.usrname + ")"))
+			else:
+				print(f"{menu.index(item)})\t {item.split("#")[0]}".expandtabs(2))
+		try: # Process input
+			value = input(prompt)
+			ival = int(value)
+			if 0 < ival < len(menu): # Action selected
+				if ival == (len(menu) - 1): # Last menu item = Back/Quit
+					break
+				else:
+					act = menu[ival].split("#")[1]
+					exec(f"{act}")                           
+			else:
+				input("Invalid integer " + str(ival) + " , press enter to continue")
+				continue
+		except ValueError:
+			if value.lower() == "b": # Back selected
+				break
+			elif value.lower() == "q": # Quit selected
+				break
+			else:
+				input("Invalid input " + value + " , press enter to continue")
+				continue
