@@ -52,6 +52,14 @@ def add_nfs_local():
 
 def add_nfs_remote():
 	remnode = input("Remote node: ")
+	usropt = input("System mount or Data share? (s/d): ").lower()
+	if usropt == "s": # System share
+		defdir = pvar.arrconf['defsysdir']
+	elif usropt == "d": # Data share
+		defdir = pvar.arrconf['defdatadir']
+	else:
+		input("Invalid entry")
+		return
 	print("Remote node: " + remnode)
-	print("Remote directory: ")
+	print("Remote directory: " + defdir)
 	input("NFS remote mount done - press enter to continue")
