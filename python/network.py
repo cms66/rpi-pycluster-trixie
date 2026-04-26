@@ -35,9 +35,17 @@ def add_nfs_local():
 		defdir = pvar.arrconf['defsysdir']
 		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
 		nfsdir = (defdir, usrdir)[usrdir > ""]
-		input(nfsdir + " NFS share added - press enter to continue")
-	else:
+	else: # Data share
+		defdir = pvar.arrconf['defdatadir']
 		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
+		nfsdir = (defdir, usrdir)[usrdir > ""]
+	with open('/etc/exports', 'a') as f: # Check for existing export and add if not
+		content = f.read()
+		if nfsdir in content:
+			print('Export already exists')
+		else:
+			f.write(nfsdir + " " + pvar.arrconf['subnet'] + "(rw,sync,no_subtree_check,no_root_squash)"
+			os.system("exportfs -ra")
 	input(nfsdir + " NFS share added - press enter to continue")
 
 def add_nfs_remote():
