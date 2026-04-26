@@ -55,11 +55,15 @@ def add_nfs_remote():
 	usropt = input("System mount or Data share? (s/d): ").lower()
 	if usropt == "s": # System share
 		defdir = pvar.arrconf['defsysdir']
+		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
+		nfsdir = defdir if usrdir <= "" else usrdir
 	elif usropt == "d": # Data share
 		defdir = pvar.arrconf['defdatadir']
 	else:
 		input("Invalid entry")
 		return
 	print("Remote node: " + remnode)
-	print("Remote directory: " + defdir)
+	print("Def Remote directory: " + defdir)
+	print("User Remote directory: " + usrdir)
+	print("NFS Remote directory: " + nfsdir)
 	input("NFS remote mount done - press enter to continue")
