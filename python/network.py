@@ -72,8 +72,11 @@ def add_nfs_remote():
 	print("User Remote directory: " + usrdir)
 	print("NFS Remote directory: " + nfsdir)
 	with open("/etc/fstab", "a") as f:
-		strmount = remnode + ":" + nfsdir + " " + nfsdir + " nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0"
+		strmount = remnode + ":" + nfsdir nfsdir + "stuff"
+		print("str = " + strmount)
+		#strmount = remnode + ":" + nfsdir + " " + nfsdir + " nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0"
 		"".join(strmount.splitlines())
+		print("str = " + strmount)
 		input("Mount = " + strmount + " - press enter to continue")
 		f.write(strmount)
 	#echo "$remnode:$mntdir $mntdir    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0" >> /etc/fstab
