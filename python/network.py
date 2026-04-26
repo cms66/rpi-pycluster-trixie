@@ -38,7 +38,7 @@ def add_nfs_local():
 		input(nfsdir + " NFS share added - press enter to continue")
 	else:
 		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
-	input(dir + " NFS share added - press enter to continue")
+	input(nfsdir + " NFS share added - press enter to continue")
 
 def add_nfs_remote():
 	input("TODO - press enter to continue")
