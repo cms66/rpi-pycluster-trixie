@@ -6,6 +6,8 @@ import python.variables as pvar
 def create_user_ssh_keys():
 	# Create keys for user
 	#runuser -l  $usrname -c "ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -P \"\"" # Works including creates .ssh directory
+	#"sudo -u " + multipi + " ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -P ''"
+	os.system("sudo -u " + multipi + " ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -P ''")
 	strcmd = "echo 'HostKey /home/" + usrname + "/.ssh/id_ed25519' >> /etc/ssh/sshd_config"
 	os.system(strcmd)
 	os.system("systemctl restart ssh")
@@ -13,7 +15,7 @@ def create_user_ssh_keys():
 
 def copy_user_ssh_keys():
 	remnode = input("Remote node")
-	os.system("sudo -u multipi ssh-copy-id -i /home/multipi/.ssh/id_ed25519 multipi@pinode-9")
+	os.system("sudo -u " + multipi + " ssh-copy-id -i /home/" + usrname + "/.ssh/id_ed25519 " + usrname + "@" + remnode)
 	input("SSH key copied - press enter to continue")
 
 def delete_node_from_known_hosts():
