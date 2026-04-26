@@ -32,10 +32,10 @@ def install_nfs_server():
 def add_nfs_local():
 	usropt = input("System mount or Data share? (s/d): ").lower()
 	if usropt == "s": # System share
-		input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
+		dir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
 	else:
-		input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
-	input("NFS share added - press enter to continue")
+		dir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
+	input(dir + " NFS share added - press enter to continue")
 
 def add_nfs_remote():
 	input("TODO - press enter to continue")
