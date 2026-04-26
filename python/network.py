@@ -1,5 +1,6 @@
 # Network functions
 
+import os
 import python.variables as pvar
 
 def create_user_ssh_keys():
