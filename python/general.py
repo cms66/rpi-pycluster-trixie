@@ -2,6 +2,7 @@
 
 import os
 import python.variables as pvar
+import python.hardware as phdw
 
 def read_config():
 	conf = "/boot/firmware/custom.conf"
