@@ -4,11 +4,10 @@ import os
 import python.general as pgen
 import python.hardware as phdw
 import python.variables as pvar
-	
+import python.network as pnet
+
 def main():
 	pgen.read_config()
-	#pgen.show_config() # Test function
-	#phdw.setup_cam_csi() # Works
 	pgen.show_menu(pvar.mnuMainFull)
 
 if __name__ == "__main__":
