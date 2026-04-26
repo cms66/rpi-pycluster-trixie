@@ -25,7 +25,8 @@ def install_nfs_server():
 	with open("/etc/default/nfs-kernel-server", "a") as f:
 		f.write("RPCMOUNTDOPTS='--manage-gids -N 2 -N 3'\n")
 		f.write("RPCNFSDOPTS='-N 2 -N 3'\n")
-	os.system("yes | sudo ufw allow from " + pvar.arrconf['subnet'] + " to any port nfs")
+	strcmd = "yes | sudo ufw allow from " + pvar.arrconf['subnet'] + " to any port nfs"
+	os.system(strcmd)
 	input("NFS server install done - press enter to continue")
 
 def add_nfs_local():
