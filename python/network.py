@@ -34,6 +34,7 @@ def add_nfs_local():
 	if usropt == "s": # System share
 		input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
 	else:
+		input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
 	input("NFS share added - press enter to continue")
 
 def add_nfs_remote():
