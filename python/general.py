@@ -19,6 +19,11 @@ def show_config():
 	print()
 	print(pvar.arrconf['gitrepo']) # Works
 
+def update_system():
+	os.system("sudo apt-get -y update")
+	os.system("sudo apt-get -y full-upgrade")
+	input("System update done, press enter to continue")
+
 def show_menu(menu):
 	prompt = "Select option: "
 	while True:
