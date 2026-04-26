@@ -48,7 +48,7 @@ def update_system():
 	os.system("apt-get -y full-upgrade")
 	input("System update done, press enter to continue")
 
-show_system_summary():
+def show_system_summary():
 	input("Press enter to continue")
 
 def show_menu(menu):
