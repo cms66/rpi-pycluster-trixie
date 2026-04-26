@@ -3,7 +3,11 @@
 import python.variables as pvar
 
 def create_user_ssh_keys():
-	input("TODO - press enter to continue")
+	# Create keys for user
+	#runuser -l  $usrname -c "ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -P \"\"" # Works including creates .ssh directory
+	#echo "HostKey $usrpath/.ssh/id_ed25519" >> /etc/ssh/sshd_config
+	os.system("systemctl restart ssh")
+ 	input("SSH key setup done - press enter to continue")
 
 def copy_user_ssh_keys():
 	input("TODO - press enter to continue")
