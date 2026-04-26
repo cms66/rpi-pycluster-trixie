@@ -14,7 +14,7 @@ mnuMainFull = [
 "Update system#update_system()",
 "Hardware#show_menu(pvar.mnuHardwareFull)",
 "Network#show_menu(pvar.mnuNetworkFull)",
-"System summary#pgen.show_system_summary()",
+"System summary#show_system_summary()",
 "Back|Quit#"]
 
 mnuHardwareFull=[
