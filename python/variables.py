@@ -8,3 +8,7 @@ usrname = os.getlogin() # Gives user with/without sudo
 usrid = int(os.system("cat /etc/passwd | grep " + usrname + " | cut -d ':' -f 3"))
 #usrid = 1000
 arrconf = {}
+
+# Menus
+
+
