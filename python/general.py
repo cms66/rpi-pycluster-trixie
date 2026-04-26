@@ -12,12 +12,34 @@ def read_config():
 				val = line.split('=')[1]
 				pvar.arrconf[key] = val
 
-def show_config():
+def show_config(): # TODO
 	data = pvar.arrconf
 	for value in data:
 		print(value)
 	print()
 	print(pvar.arrconf['gitrepo']) # Works
+
+def set_owner(path, user):
+	id = pvar.usrid
+	for root, dirs, files in os.walk(path):
+		# set perms on sub-directories  
+		for momo in dirs:
+			os.chown(os.path.join(root, momo), id, id)
+		# set perms on files
+		for momo in files:
+			os.chown(os.path.join(root, momo), id, id)
+
+def update_setup():
+	strdir = pvar.arrconf["gitlocaldir"] + "/" +  pvar.arrconf["gitrepo"].strip()
+	gitdir = "".join(strdir.splitlines())
+	strurl = "https://github.com/" +  pvar.arrconf["gituser"] + "/" +  pvar.arrconf["gitrepo"] + ".git".strip()
+	giturl = "".join(strurl.splitlines())
+	cmd = "git pull " + giturl
+	os.chdir(gitdir)
+	os.system("git stash")
+	os.system(cmd)
+	set_owner(gitdir, pvar.usrid)
+	input("Setup update done, press enter to continue")
 
 def update_system():
 	os.system("apt-get -y update")
