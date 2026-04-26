@@ -1,4 +1,5 @@
 # Network functions
+# TODO - update NFS firewall rule
 
 import os
 import python.variables as pvar
@@ -25,12 +26,15 @@ def install_nfs_server():
 	with open("/etc/default/nfs-kernel-server", "a") as f:
 		f.write("RPCMOUNTDOPTS='--manage-gids -N 2 -N 3'\n")
 		f.write("RPCNFSDOPTS='-N 2 -N 3'\n")
-	strcmd = "ufw allow from 192.168.0.0/24 to any port nfs"
-	os.system(strcmd)
+	# os.system("ufw allow from 192.168.0.0/24 to any port nfs")
 	input("NFS server install done - press enter to continue")
 
 def add_nfs_local():
-	input("TODO - press enter to continue")
+	usropt = input("System mount or Data share? (s/d): ").lower()
+	if usropt == "s": # System share
+		input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
+	else:
+	input("NFS share added - press enter to continue")
 
 def add_nfs_remote():
 	input("TODO - press enter to continue")
