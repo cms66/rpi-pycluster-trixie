@@ -8,5 +8,9 @@ usrid = getpwnam(usrname).pw_uid
 arrconf = {}
 
 # Menus
-
+mnuMainFull = [
+"Setup - Main menu#",
+"Update setup#update_setup()",
+"Update system#update_system()",
+"Back|Quit#"]
 
