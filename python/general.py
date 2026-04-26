@@ -19,5 +19,5 @@ def show_config():
 	print()
 	print(pvar.arrconf['gitrepo']) # Works
 
-def show_menu():
+def show_menu(menu):
 	input("TODO show_menu - press enter to continue")
