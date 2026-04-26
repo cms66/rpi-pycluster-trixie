@@ -18,5 +18,5 @@ mnuMainFull = [
 mnuHardwareFull=[
 "Setup - Hardware menu#",
 "PCIe#phdw.setup_pcie()",
-"Camera - CSI#phdw.setup_camera_csi()",
+"Camera - CSI#phdw.setup_cam_csi()",
 "Back|Quit#"]
