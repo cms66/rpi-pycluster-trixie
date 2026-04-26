@@ -50,6 +50,10 @@ def update_system():
 	input("System update done, press enter to continue")
 
 def show_system_summary():
+	os.system("rpi-eeprom-update")
+	os.system("free -mt")
+	os.system("nmcli dev status")
+	os.system("ufw status")
 	input("Press enter to continue")
 
 def show_menu(menu):
