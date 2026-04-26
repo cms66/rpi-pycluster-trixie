@@ -7,7 +7,7 @@ def create_user_ssh_keys():
 	# Create keys for user
 	#runuser -l  $usrname -c "ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -P \"\"" # Works including creates .ssh directory
 	#"sudo -u " + usrname + " ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -P ''"
-	os.system("sudo -u " + pvar.usrname + " ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -P ''")
+	os.system("sudo -u " + pvar.usrname + " ssh-keygen -t ed25519 -f /home/" + + pvar.usrname + "/.ssh/id_ed25519 -P ''")
 	strcmd = "echo 'HostKey /home/" + pvar.usrname + "/.ssh/id_ed25519' >> /etc/ssh/sshd_config"
 	os.system(strcmd)
 	os.system("systemctl restart ssh")
