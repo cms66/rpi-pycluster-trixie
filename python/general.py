@@ -3,6 +3,7 @@
 import os
 import python.variables as pvar
 import python.hardware as phdw
+import python.network as pnet
 
 def read_config():
 	conf = "/boot/firmware/custom.conf"
@@ -46,6 +47,9 @@ def update_system():
 	os.system("apt-get -y update")
 	os.system("apt-get -y full-upgrade")
 	input("System update done, press enter to continue")
+
+show_system_summary():
+	input("Press enter to continue")
 
 def show_menu(menu):
 	prompt = "Select option: "
