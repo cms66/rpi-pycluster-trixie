@@ -48,7 +48,10 @@ def add_nfs_local():
 			#f.write(nfsdir + " " + pvar.arrconf['subnet'] + "(rw,sync,no_subtree_check,no_root_squash)")
 			#os.system("exportfs -ra")
 			print('Export does not exist')
-	input(nfsdir + " NFS share added - press enter to continue")
+	input("NFS share added - press enter to continue")
 
 def add_nfs_remote():
-	input("TODO - press enter to continue")
+	remnode = input("Remote node: ")
+	print("Remote node: " + remnode)
+	print("Remote directory: ")
+	input("NFS remote mount done - press enter to continue")
