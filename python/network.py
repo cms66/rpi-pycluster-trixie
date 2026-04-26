@@ -39,6 +39,7 @@ def add_nfs_local():
 		defdir = pvar.arrconf['defdatadir']
 		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
 		nfsdir = (defdir, usrdir)[usrdir != ""]
+	input(nfsdir + " selected - press enter to continue")
 	with open('/etc/exports', 'a') as f: # Check for existing export and add if not
 		content = f.read()
 		if nfsdir in content:
