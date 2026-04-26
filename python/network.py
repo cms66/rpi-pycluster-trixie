@@ -17,7 +17,7 @@ def copy_user_ssh_keys():
 
 def delete_node_from_known_hosts():
 	remnode = input("Remote node: ")
-	os.system("sudo -u " + pvar.usrname + " ssh-keygen -f /home/" + pvar.usrname + "/.ssh/known_hosts -R " + remnode
+	os.system("sudo -u " + pvar.usrname + " ssh-keygen -f /home/" + pvar.usrname + "/.ssh/known_hosts -R " + remnode)
 	input(remnode + " removed from known hosts - press enter to continue")
 
 def install_nfs_server():
