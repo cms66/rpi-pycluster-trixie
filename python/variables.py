@@ -12,5 +12,11 @@ mnuMainFull = [
 "Setup - Main menu#",
 "Update setup#update_setup()",
 "Update system#update_system()",
+"Hardware#show_menu(pvar.mnuHardwareFull)",
 "Back|Quit#"]
 
+mnuHardwareFull=[
+"Setup - Hardware menu#",
+"PCIe#phdw.setup_pcie()",
+"Camera - CSI#phdw.setup_camera_csi()",
+"Back|Quit#"]
