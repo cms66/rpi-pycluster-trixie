@@ -22,9 +22,9 @@ def delete_node_from_known_hosts():
 
 def install_nfs_server():
 	os.system("apt-get -y install nfs-kernel-server")
-	os.system(echo "RPCMOUNTDOPTS='--manage-gids -N 2 -N 3'" >> /etc/default/nfs-kernel-server)
+	os.system("echo \"RPCMOUNTDOPTS='--manage-gids -N 2 -N 3'\" >> /etc/default/nfs-kernel-server")
 	#echo "RPCMOUNTDOPTS=\"--manage-gids -N 2 -N 3\"" >> /etc/default/nfs-kernel-server
-	os.system(echo "RPCNFSDOPTS='-N 2 -N 3'" >> /etc/default/nfs-kernel-server)
+	os.system("echo \"RPCNFSDOPTS='-N 2 -N 3'\" >> /etc/default/nfs-kernel-server")
 	#echo "RPCNFSDOPTS=\"-N 2 -N 3\"" >> /etc/default/nfs-kernel-server
 	os.system("yes | sudo ufw allow from " + pvar.arrconf['subnet'] + " to any port nfs")
 	input("NFS server install done - press enter to continue")
