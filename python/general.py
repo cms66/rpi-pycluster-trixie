@@ -20,8 +20,8 @@ def show_config():
 	print(pvar.arrconf['gitrepo']) # Works
 
 def update_system():
-	os.system("sudo apt-get -y update")
-	os.system("sudo apt-get -y full-upgrade")
+	os.system("apt-get -y update")
+	os.system("apt-get -y full-upgrade")
 	input("System update done, press enter to continue")
 
 def show_menu(menu):
