@@ -16,6 +16,7 @@ mnuMainFull = [
 "Hardware#show_menu(pvar.mnuHardwareFull)",
 "Network#show_menu(pvar.mnuNetworkFull)",
 "Environment Modules#show_menu(pvar.mnuModulesFull)",
+"OpenCV#setup_opencv()",
 "System summary#show_system_summary()",
 "Back|Quit#"]
 
