@@ -67,7 +67,7 @@ def install_modules_server():
 	with open('.bashrc', 'a') as f:
 		f.write("'. /usr/local/init/bash'")
 	os.system("rm -rf modules*")
-	read -p "Environment Modules install done, press enter to continue" input
+	input("Environment Modules install done, press enter to continue")
 
 def show_menu(menu):
 	prompt = "Select option: "
