@@ -58,6 +58,7 @@ def show_system_summary():
 	input("Press enter to continue")
 
 def setup_opencv():
+	# TODO - Check for previous installation
 	strdep = "libjpeg-dev libpng-dev libavcodec-dev libavformat-dev libswscale-dev libgtk2.0-dev libcanberra-gtk* libgtk-3-dev libgstreamer1.0-dev gstreamer1.0-gtk3 libgstreamer-plugins-base1.0-dev gstreamer1.0-gl libxvidcore-dev libx264-dev python3-numpy python3-pip libtbbmalloc2 libdc1394-dev libv4l-dev v4l-utils libopenblas-dev libblas-dev liblapack-dev gfortran libhdf5-dev libprotobuf-dev libgoogle-glog-dev libgflags-dev protobuf-compiler"
 	usropt = input("Install Server or Client (s/c): ").lower()
 	if usropt == "s": # Server install
@@ -80,11 +81,11 @@ def check_file(file, str):
 		with open (file, 'a') as f:
 			content = f.read()
 			if str in content:
-				res = "String found"
+				res = f"{str} found in {file}"
 			else:
-				res = "String NOT found"
+				res = f"{str} NOT found in {file}"
 	else:
-		res = "File NOT found"
+		res = f"{file} NOT found"
 	input(f"File check done {res} press enter to continue")
 
 def show_menu(menu):
