@@ -74,7 +74,7 @@ def setup_opencv():
 		input("Invalid entry - press enter to continue")	
 
 def check_file(file, str):
-	if os.path.exists(file)
+	if os.path.exists(file):
 		print("File: " + file)
 		print("String: " + str)
 		with open (file, 'a') as f:
