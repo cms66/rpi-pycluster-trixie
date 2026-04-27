@@ -1,5 +1,5 @@
 # Hardware functions
-
+import os
 import python.variables as pvar
 
 def setup_pcie():
