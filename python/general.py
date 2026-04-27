@@ -85,7 +85,7 @@ def check_file(file, str):
 				res = "String NOT found"
 	else:
 		res = "File NOT found"
-	input("File check done - " + res + "press enter to continue")
+	input(f"File check done {res} press enter to continue")
 
 def show_menu(menu):
 	prompt = "Select option: "
