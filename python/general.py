@@ -69,8 +69,8 @@ def install_modules_server():
 	os.system("rm -rf modules*")
 	input("Environment Modules server install done, press enter to continue")
 
-install_modules_client()
-{
+def install_modules_client():
+
     apt-get -y install tcl
 	os.system("apt-get -y install tcl")
 	with open('.bashrc', 'a') as f:
