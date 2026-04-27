@@ -9,7 +9,7 @@ def setup_pcie():
 		content = f.read()
 		if "pciex1_gen" in content:
 			input("PCIe Gen 3 already enabled, press enter to continue")
-	#	else:
+		else:
 	#		f.write("dtparam=pciex1")
 	#		f.write("dtparam=pciex1_gen=3")
 			input("PCIe Gen 3 enabled (reboot required), press enter to continue")
