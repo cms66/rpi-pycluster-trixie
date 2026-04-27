@@ -41,6 +41,6 @@ mnuSecurityFull=[
 
 mnuModulesFull=[
 "Setup - Modules menu#",
-"Install - Server#install_modules_server()",
-"Install - Client#install_modules_client()",
+"Install - Server#pmod.install_modules_server()",
+"Install - Client#pmod.install_modules_client()",
 "Back|Quit#"]
