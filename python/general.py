@@ -76,7 +76,12 @@ def setup_opencv():
 def check_file(file, str):
 	print("File: " + file)
 	print("String: " + str)
-	#with open (file) as f:
+	with open (file, a) as f:
+		content = f.read()
+		if str in content:
+			print(str + " - found in - " + file)
+		else:
+			print(str + " - NOT found in - " + file)
 	input("File check done - press enter to continue")
 
 def show_menu(menu):
