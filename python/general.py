@@ -74,15 +74,18 @@ def setup_opencv():
 		input("Invalid entry - press enter to continue")	
 
 def check_file(file, str):
-	print("File: " + file)
-	print("String: " + str)
-	with open (file, a) as f:
-		content = f.read()
-		if str in content:
-			res = "String found"
-		else:
-			res = "String NOT found"
-	input("File check done - press enter to continue")
+	if os.path.exists(file)
+		print("File: " + file)
+		print("String: " + str)
+		with open (file, 'a') as f:
+			content = f.read()
+			if str in content:
+				res = "String found"
+			else:
+				res = "String NOT found"
+	else:
+		res = "File NOT found"
+	input("File check done - " + res + "press enter to continue")
 
 def show_menu(menu):
 	prompt = "Select option: "
