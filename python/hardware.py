@@ -5,7 +5,6 @@ import python.variables as pvar
 def setup_pcie():
 	# TODO - Check Model
 	# Enable Gen 3 - Check for Pi 5/CM5
-	with open('/etc/exports', 'a') as f:
 	with open('/boot/firmware/config.txt', 'a') as f:
 		content = f.read()
 		if "pciex1_gen" in content:
