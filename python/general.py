@@ -79,9 +79,9 @@ def check_file(file, str):
 	with open (file, a) as f:
 		content = f.read()
 		if str in content:
-			print(str + " - found in - " + file)
+			res = "String found"
 		else:
-			print(str + " - NOT found in - " + file)
+			res = "String NOT found"
 	input("File check done - press enter to continue")
 
 def show_menu(menu):
