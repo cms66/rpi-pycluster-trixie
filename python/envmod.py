@@ -3,11 +3,11 @@
 import os
 
 def install_modules_server():
-	os.system("apt-get -y install tcl tcl-dev m4 sphinx autoconf automake autopoint")
-	os.system("git clone https://github.com/envmodules/modules.git")
-	os.chdir("modules")
-	os.system("./configure --prefix=/usr/local")
-	os.system("make; make install; ldconfig")
+	#os.system("apt-get -y install tcl tcl-dev m4 sphinx autoconf automake autopoint")
+	#os.system("git clone https://github.com/envmodules/modules.git")
+	#os.chdir("modules")
+	#os.system("./configure --prefix=/usr/local")
+	#os.system("make; make install; ldconfig")
 	os.chdir("..")
 	# Modules initialization
 	with open('.bashrc', 'a') as f:
