@@ -34,7 +34,9 @@ def add_nfs_local():
 	if usropt == "s": # System share
 		defdir = pvar.arrconf['defsysdir']
 		#usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
-		usrdir = input(f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): ")
+		str = "Path of directory to be shared (press enter for default " + pvar.arrconf['defsysdir'] + "): "
+		#usrdir = input(f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): ")
+		usrdir = input(str)
 		nfsdir = defdir if usrdir <= "" else usrdir
 	elif usropt == "d": # Data share
 		defdir = pvar.arrconf['defdatadir']
