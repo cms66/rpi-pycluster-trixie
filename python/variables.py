@@ -14,6 +14,7 @@ mnuMainFull = [
 "Update system#update_system()",
 "Hardware#show_menu(pvar.mnuHardwareFull)",
 "Network#show_menu(pvar.mnuNetworkFull)",
+"#show_system_summary()",
 "System summary#show_system_summary()",
 "Back|Quit#"]
 
@@ -36,4 +37,9 @@ mnuNetworkFull=[
 mnuSecurityFull=[
 "Setup - Security menu#",
 "UFW - Status#psec.get_ufw_status()",
+"Back|Quit#"]
+
+mnuModulesFull=[
+"Setup - Modules menu#",
+"Install - Server#install_modules_server()",
 "Back|Quit#"]
