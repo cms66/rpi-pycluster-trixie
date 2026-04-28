@@ -3,6 +3,7 @@
 
 import os
 import python.variables as pvar
+import python.general as pgen
 
 def create_user_ssh_keys():
 	# Create keys for user
@@ -29,35 +30,29 @@ def install_nfs_server():
 	# os.system("ufw allow from 192.168.0.0/24 to any port nfs") # TODO or Not needed?
 	input("NFS server install done - press enter to continue")
 
-def add_nfs_local():
-	usropt = input("System mount or Data share? (s/d): ").lower()
-	if usropt == "s": # System share
+def add_nfs_export():
+	usropt = input("System or Data export? (s/d): ").lower() # Check export type
+	if usropt == "s": # System export
 		defdir = pvar.arrconf['defsysdir']
 		#usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
-		str = "Path of directory to be shared (press enter for default " + pvar.arrconf['defsysdir'] + "): "
+		#str = "Path of directory to be shared (press enter for default " + pvar.arrconf['defsysdir'] + "): "
 		#usrdir = input(f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): ")
-		usrdir = input(str)
+		struser = f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): "
+		usrdir = input(struser)
 		nfsdir = defdir if usrdir <= "" else usrdir
-	elif usropt == "d": # Data share
+	elif usropt == "d": # Data export
 		defdir = pvar.arrconf['defdatadir']
 		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
 		nfsdir = defdir if usrdir <= "" else usrdir
 	else:
 		input("Invalid entry - press enter to continue")
 		return
-	input(f"{nfsdir} selected - press enter to continue".strip)
-	strnfs = f"{nfsdir} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)"
-	strcmd = "echo " + strnfs + " >> /etc/exports"
-	input("CMD = " + strcmd)
+	with open('/etc/exports', 'a') as f: # Check for existing export and add if not
+		if nfsdir in f.read(): # Export exists
+	strcmd = f"echo '{nfsdir} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports"
 	os.system(strcmd)
-	#with open('/etc/exports', 'a') as f: # Check for existing export and add if not
-	#	content = f.read()
-	#	if nfsdir in content:
-	#		print('Export already exists')
-	#	else:
-	#		f.write(f"{nfsdir} {pvar.arrconf['subnet']} (rw,sync,no_subtree_check,no_root_squash)")
-	#		os.system("exportfs -ra")
-	#		print('Export added')
+	
+
 	input("NFS share added - press enter to continue")
 
 def add_nfs_remote():
