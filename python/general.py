@@ -75,29 +75,15 @@ def setup_opencv():
 
 def check_file(file, str):
 	try:
-		os.path.isfile(file)
-	except:
-		res = f"{file} NOT found"
-	else:
 		with open (file, 'r') as f:
 			content = f.read()
 			if str in content:
 				res = f"{str} found in {file}"
 			else:
-				res = f"{str} NOT found in {file}"
-
-	#if os.path.exists(file):
-	#	print("File: " + file)
-	#	print("String: " + str)
-	#	with open (file, 'a') as f:
-	#		content = f.read()
-	#		if str in content:
-	#			res = f"{str} found in {file}"
-	#		else:
-	#			res = f"{str} NOT found in {file}"
-	#else:
-	#	res = f"{file} NOT found"
-	input(f"File check done {res} press enter to continue")
+				res = f"{str} NOT found in {file}"                
+	except:
+		res = f"{file} NOT found"
+	input(f"Result: {res} press enter to continue")
 
 def show_menu(menu):
 	prompt = "Select option: "
