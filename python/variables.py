@@ -17,7 +17,7 @@ mnuMainFull = [
 "Network#show_menu(pvar.mnuNetworkFull)",
 "Environment Modules#show_menu(pvar.mnuModulesFull)",
 "OpenCV#setup_opencv()",
-"Test#check_file('/etc/fstab', '/usr/local1')",
+"Test#check_file('/etc/fstab', '/usr/local')",
 "System summary#show_system_summary()",
 "Back|Quit#"]
 
