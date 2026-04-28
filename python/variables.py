@@ -33,7 +33,7 @@ mnuNetworkFull=[
 "SSH - Copy user key to host#pnet.copy_user_ssh_keys()",
 "SSH - Remove host from known hosts#pnet.delete_node_from_known_hosts()",
 "NFS - Install Server#pnet.install_nfs_server()",
-"NFS - Add local export#pnet.add_nfs_local()",
+"NFS - Add local export#pnet.add_nfs_export()",
 "NFS - Add remote mount#pnet.add_nfs_remote()",
 "Back|Quit#"]
 
