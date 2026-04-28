@@ -17,7 +17,7 @@ mnuMainFull = [
 "Network#show_menu(pvar.mnuNetworkFull)",
 "Environment Modules#show_menu(pvar.mnuModulesFull)",
 "OpenCV#setup_opencv()",
-"Test#check_file('/etc/exports', '/usr/local')",
+"Test#psec.test_func()",
 "System summary#show_system_summary()",
 "Back|Quit#"]
 
