@@ -58,12 +58,23 @@ def show_system_summary():
 	input("Press enter to continue")
 
 def setup_opencv():
+	os.chdir(pvar.usrpath)
 	# TODO - Check for previous installation
 	strdep = "libjpeg-dev libpng-dev libavcodec-dev libavformat-dev libswscale-dev libgtk2.0-dev libcanberra-gtk* libgtk-3-dev libgstreamer1.0-dev gstreamer1.0-gtk3 libgstreamer-plugins-base1.0-dev gstreamer1.0-gl libxvidcore-dev libx264-dev python3-numpy python3-pip libtbbmalloc2 libdc1394-dev libv4l-dev v4l-utils libopenblas-dev libblas-dev liblapack-dev gfortran libhdf5-dev libprotobuf-dev libgoogle-glog-dev libgflags-dev protobuf-compiler"
 	usropt = input("Install Server or Client (s/c): ").lower()
 	if usropt == "s": # Server install
-		check_file("/etc/exports", "/usr/local")
-		#os.system("apt-get -y install " + strdep)
+		if check_file("/etc/exports", "/usr/local") == "NOTEXT": # Server installed, add export
+			with open("/etc/exports","a") as f:
+				f.write("/usr/local 192.168.0.0/24(rw,sync,no_subtree_check,no_root_squash)")
+		os.system("apt-get -y install " + strdep)
+		os.system("git clone https://github.com/opencv/opencv.git")
+		os.system("git clone https://github.com/opencv/opencv_contrib.git")
+		os.mkdir("opencv/build")
+		os.chdir("opencv/build")
+		os.system("cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=$usrpath/opencv_contrib/modules -D ENABLE_NEON=ON -D WITH_OPENMP=ON -D WITH_OPENCL=OFF -D BUILD_TIFF=ON -D WITH_FFMPEG=ON -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_GSTREAMER=ON -D BUILD_TESTS=OFF -D WITH_EIGEN=OFF -D WITH_V4L=ON -D WITH_LIBV4L=ON -D WITH_VTK=OFF -D WITH_QT=OFF -D WITH_PROTOBUF=ON -D OPENCV_ENABLE_NONFREE=ON -D INSTALL_C_EXAMPLES=OFF -D INSTALL_PYTHON_EXAMPLES=OFF -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.13/dist-packages -D OPENCV_GENERATE_PKGCONFIG=ON -D BUILD_EXAMPLES=OFF ..")
+		os.system("make -j4 all; make install; ldconfig")
+		os.chdir(pvar.usrpath)
+		os.system("rm -rf opencv*")
 		input("OpenCV server install done - press enter to continue")
 	elif usropt == "c": # Client install
 		check_file("/etc/fstab", "/usr/local")
@@ -78,11 +89,11 @@ def check_file(file, str):
 		with open (file, 'r') as f:
 			content = f.read()
 			if str in content:
-				res = f"{str} found in {file}"
+				res = "TEXT"
 			else:
-				res = f"{str} NOT found in {file}"                
+				res = "NOTEXT"                
 	except:
-		res = f"{file} NOT found"
+		res = "NOFILE"
 	input(f"Result: {res} press enter to continue")
 
 def show_menu(menu):
