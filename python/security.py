@@ -10,6 +10,7 @@ def test_func():
 	print(pvar.usrpath)
 	print(pvar.hstname)
 	print(pvar.arrconf['gitrepo'])
+	input("Continue")
 
 # fail2ban
 
