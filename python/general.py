@@ -89,14 +89,14 @@ def setup_opencv():
 def check_file(file, str):
 	try:
 		with open (file, 'r') as f:
-			content = f.read()
-			if str in content:
+			if str in f.read():
 				res = "TEXT"
 			else:
 				res = "NOTEXT"                
 	except:
 		res = "NOFILE"
-	input(f"Result: {res} press enter to continue")
+	return res
+	#input(f"Result: {res} press enter to continue")
 
 def show_menu(menu):
 	prompt = "Select option: "
