@@ -75,7 +75,7 @@ def setup_opencv():
 
 def check_file(file, str):
 	try:
-		os.path.exists(file)
+		os.path.isfile(file)
 	except:
 		res = f"{file} NOT found"
 	else:
