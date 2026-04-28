@@ -2,6 +2,7 @@
 
 import os
 import python.variables as pvar
+import python.general as pgen
 
 def test_func():
 	print(pvar.usrname)
