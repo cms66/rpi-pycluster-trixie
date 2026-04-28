@@ -46,7 +46,8 @@ def add_nfs_local():
 		input("Invalid entry - press enter to continue")
 		return
 	input(f"{nfsdir} selected - press enter to continue".strip)
-	strcmd = "echo '/usr/local 192.168.0.0/24(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports"
+	strnfs = f"{nfsdir} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)"
+	strcmd = "echo " + strnfs + " >> /etc/exports"
 	input("CMD = " + strcmd)
 	os.system(strcmd)
 	#with open('/etc/exports', 'a') as f: # Check for existing export and add if not
