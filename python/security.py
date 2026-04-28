@@ -9,7 +9,7 @@ def test_func():
 	print(pvar.usrid)
 	print(pvar.usrpath)
 	print(pvar.hstname)
-	print(pvar.arrconf[gitrepo])
+	print(pvar.arrconf['gitrepo'])
 
 # fail2ban
 
