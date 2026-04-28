@@ -5,6 +5,7 @@ import python.variables as pvar
 import python.general as pgen
 
 def test_func():
+	pgen.read_config()
 	print(pvar.usrname)
 	print(pvar.usrid)
 	print(pvar.usrpath)
