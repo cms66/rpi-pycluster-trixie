@@ -31,7 +31,8 @@ def install_nfs_server():
 	input("NFS server install done - press enter to continue")
 
 def add_nfs_export():
-	usropt = input("System or Data export? (s/d): ").lower() # Check export type
+	# Check export type + location
+	usropt = input("System or Data export? (s/d): ").lower() 
 	if usropt == "s": # System export
 		defdir = pvar.arrconf['defsysdir']
 		#usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
@@ -47,13 +48,18 @@ def add_nfs_export():
 	else:
 		input("Invalid entry - press enter to continue")
 		return
-	with open('/etc/exports', 'a') as f: # Check for existing export and add if not
-		if nfsdir in f.read(): # Export exists
-	strcmd = f"echo '{nfsdir} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports"
-	os.system(strcmd)
-	
+	# Check exports + add entry
+	exp = pgen.check_file("/etc/exports", nfsdir)
+	if exp == "NOTEXT": # Add entry
+		strcmd = f"echo '{nfsdir} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports"
+		os.system(strcmd)
+		os.system("systemctl daemon-reload")
+		input("Export created - press enter to continue")
+	elif exp == "TEXT":
+		input("Export exists - press enter to continue")
+	elif exp == "NOFILE":
+		input("File not found - press enter to continue")
 
-	input("NFS share added - press enter to continue")
 
 def add_nfs_remote():
 	remnode = input("Remote node: ")
