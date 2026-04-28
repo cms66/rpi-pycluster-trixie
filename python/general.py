@@ -79,7 +79,7 @@ def check_file(file, str):
 	except:
 		res = f"{file} NOT found"
 	else:
-		with open (file, 'a') as f:
+		with open (file, 'r') as f:
 			content = f.read()
 			if str in content:
 				res = f"{str} found in {file}"
