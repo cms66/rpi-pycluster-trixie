@@ -55,6 +55,7 @@ def show_system_summary():
 	os.system("free -mt")
 	os.system("nmcli dev status")
 	os.system("ufw status")
+	show_config()
 	input("Press enter to continue")
 
 def setup_opencv():
