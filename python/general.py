@@ -129,6 +129,9 @@ def show_menu(menu):
 				input("Invalid input " + value + " , press enter to continue")
 				continue
 
+#def check_mount():
+	
+
 def test_func():
 	read_config()
 	print(pvar.usrname)
@@ -136,4 +139,5 @@ def test_func():
 	print(pvar.usrpath)
 	print(pvar.hstname)
 	print(pvar.arrconf['gitrepo'])
+	show_config()
 	input("Continue")
