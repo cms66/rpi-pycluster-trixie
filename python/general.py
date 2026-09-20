@@ -128,3 +128,12 @@ def show_menu(menu):
 			else:
 				input("Invalid input " + value + " , press enter to continue")
 				continue
+
+def test_func():
+	read_config()
+	print(pvar.usrname)
+	print(pvar.usrid)
+	print(pvar.usrpath)
+	print(pvar.hstname)
+	print(pvar.arrconf['gitrepo'])
+	input("Continue")
