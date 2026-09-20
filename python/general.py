@@ -52,7 +52,7 @@ def update_system():
 
 def show_system_summary():
 	os.system("clear")
-	print("\u0332" + "System Summary")
+	print("\u0332".join("System Summary" + " (" + pvar.hstname + " - " + pvar.usrname + ")"))
 	os.system("rpi-eeprom-update")
 	os.system("free -mt")
 	os.system("nmcli dev status")
