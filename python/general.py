@@ -51,6 +51,8 @@ def update_system():
 	input("System update done, press enter to continue")
 
 def show_system_summary():
+	os.system("clear")
+	print("\u0332" + "System Summary")
 	os.system("rpi-eeprom-update")
 	os.system("free -mt")
 	os.system("nmcli dev status")
@@ -105,7 +107,6 @@ def show_menu(menu):
 		os.system("clear")
 		for item in menu: # Show menu
 			if menu.index(item) == 0: # Print underlined title + hostname
-				#print("\u0332".join(item.split("#")[0] + " (" + pvar.hstname + " - " + pvar.usrname + )"))
 				print("\u0332".join(item.split("#")[0] + " (" + pvar.hstname + " - " + pvar.usrname + ")"))
 			else:
 				print(f"{menu.index(item)})\t {item.split("#")[0]}".expandtabs(2))
