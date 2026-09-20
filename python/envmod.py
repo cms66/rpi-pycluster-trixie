@@ -1,4 +1,4 @@
-# Environment Modules funcions
+# Environment Modules functions
 
 import os
 import python.variables as pvar
@@ -18,6 +18,7 @@ def install_modules_server():
 	input("Environment Modules server install done, press enter to continue")
 
 def install_modules_client():
+	# TODO - check fstab for system nfs mount (default /usr/local)
 	os.chdir(pvar.usrpath)
 	os.system("apt-get -y install tcl")
 	with open('.bashrc', 'a') as f:
