@@ -13,13 +13,10 @@ Python setup and management for a home RPi cluster (64-bit Debian Trixie).
 - Remount drive (if needed)
 - Create files in visible partition
   - hosts.txt (add entries for nodes in your cluster)
-
 ```
 192.168.1.1   pinode-1  pinode-1.local 
 ```
-
   - custom.conf (add/modify following lines)
-
 ```
   wificountry=mycountry
   wifissid=myssid
