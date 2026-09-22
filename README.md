@@ -41,7 +41,7 @@ A reboot is recommended, otherwise reload bash
 source .bashrc
 ```
 
-You can the use shortcuts
+You can then use bash aliases
 - mps (Setup menu)
 - mvp (Activate python Virtual Environment)
 - dvp (Deactivate python Virtual Environment)
