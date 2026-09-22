@@ -1,6 +1,8 @@
 # Python main entry point for setup + management
 
 import os
+
+# Local imports
 import python.variables as pvar
 import python.general as pgen
 import python.hardware as phdw
