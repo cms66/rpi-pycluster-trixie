@@ -1,5 +1,5 @@
 # rpi-pycluster-trixie
-Python setup and management for a home RPi cluster (Debian Trixie)
+Python setup and management for a home RPi cluster (Debian Trixie).
 
 ## First setup
 - Burn image
