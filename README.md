@@ -48,4 +48,4 @@ You can then use bash aliases
 - spr (Reboot)
 - spo (Poweroff)
 
-
+## Second setup
