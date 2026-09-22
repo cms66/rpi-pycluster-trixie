@@ -1,5 +1,5 @@
 # rpi-pycluster-trixie
-Python setup and management for a home RPi cluster (Debian Trixie).
+Python setup and management for a home RPi cluster (64-bit Debian Trixie).
 
 ## Assumptions
 - Router is configured with reserved IP addresses. My example uses
