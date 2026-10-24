@@ -8,7 +8,7 @@ Python setup and management for a home RPi cluster (64-bit Debian Trixie).
   - Other devices = 192.168.1.200 to 192.168.1.253
   - Router = 192.168.1.254
 
-## First setup
+## First setup (Server)
 - Burn image (latest 64 bit Lite version) using Raspberry Pi Imager or similar
 - Remount drive (if needed)
 - Create files in visible partition
@@ -48,4 +48,18 @@ You can then use bash aliases
 - spr (Reboot)
 - spo (Poweroff)
 
-## Second setup
+## Second setup (Server)
+- Open setup menu
+- Hardware
+-  - If you have Raspberry Pi 5 or Compute Module 5, you can increase PCIe speed from Gen 2 (5 GT/s) to Gen 3 (8 GT/s)
+- Network
+-   - Create user SSH keys
+    - Install NFS Server
+    - Add local exports
+    -   - System (default is /usr/local)
+        - Data (default is /data)
+- Environment Modules
+-   - Install Server
+- OpenCV
+-   - Install Server
+## Third setup (Client/Node)
