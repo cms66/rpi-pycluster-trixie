@@ -36,6 +36,7 @@ def update_system():
 	os.system("apt-get -y update")
 	os.system("apt-get -y full-upgrade")
 	os.system("apt-get -y install python3-dev gcc g++ libdtovl0 libomp-dev git build-essential cmake pkg-config make nfs-common screen htop stress-ng zip bzip2 fail2ban ufw ntpsec-ntpdate pkgconf openssl python3-setuptools libgpiod-dev mmc-utils smartmontools munge cgroup-tools libcgroup-dev autoconf libtool curl libcurl4-openssl-dev systemd-dev swig")
+	os.system("rpi-eeprom-update")
 	input("System update done, press enter to continue")
 
 def setup_slurm_dirs():
