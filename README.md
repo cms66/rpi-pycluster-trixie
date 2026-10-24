@@ -12,7 +12,7 @@ Python setup and management for a home RPi cluster (64-bit Debian Trixie).
 - Burn image (latest 64 bit Lite version) using Raspberry Pi Imager or similar
 - Remount drive (if needed)
 - Create files in visible partition
-  - hosts.txt (add entries for nodes in your cluster)
+  - hosts.txt (add entries for nodes in your cluster, one per line)
 ```
 192.168.1.1   pinode-1  pinode-1.local 
 ```
