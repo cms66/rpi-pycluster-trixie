@@ -48,6 +48,7 @@ def update_setup():
 def update_system():
 	os.system("apt-get -y update")
 	os.system("apt-get -y full-upgrade")
+	os.system("rpi-eeprom-update")
 	input("System update done, press enter to continue")
 
 def show_system_summary():
