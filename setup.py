@@ -57,8 +57,6 @@ def setup_firewall():
 		os.system("ufw allow 22/tcp")
 	else:
 		os.system("ufw allow from " + arrconf['subnet'] + " to any port 22 proto tcp")
-		 "ufw", "allow", "from", str(subnet),
-            "to", "any", "port", "22", "proto", "tcp"
 	os.system("ufw logging on")
 	os.system("ufw --force enable")
 	input("Firewall setup done, press enter to continue")
