@@ -56,7 +56,7 @@ def setup_firewall():
 	if usropt == "y":
 		os.system("ufw allow 22/tcp")
 	else:
-		os.system("ufw allow from " + str(arrconf['subnet']) + " to any port 22 proto tcp")
+		os.system("ufw allow from " + arrconf['subnet'].strip() + " to any port 22 proto tcp")
 	os.system("ufw logging on")
 	os.system("ufw --force enable")
 	input("Firewall setup done, press enter to continue")
