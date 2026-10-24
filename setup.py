@@ -54,11 +54,13 @@ def setup_nfs_client():
 def setup_firewall():
 	usropt = input("Allow remote ssh acces (y/n): ").lower()
 	if usropt == "y":
-		os.system("yes | sudo ufw allow ssh")
+		os.system("ufw allow 22/tcp")
 	else:
-		os.system("yes | sudo ufw allow from " + arrconf['subnet'] + " to any port ssh")
-	os.system("sudo ufw logging on")
-	os.system("yes | sudo ufw enable")
+		os.system("ufw allow from " + arrconf['subnet'] + " to any port 22 proto tcp")
+		 "ufw", "allow", "from", str(subnet),
+            "to", "any", "port", "22", "proto", "tcp"
+	os.system("ufw logging on")
+	os.system("ufw --force enable")
 	input("Firewall setup done, press enter to continue")
 
 def setup_git():
