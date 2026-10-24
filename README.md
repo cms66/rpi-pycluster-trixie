@@ -16,7 +16,7 @@ Python setup and management for a home RPi cluster (64-bit Debian Trixie).
 ```
 192.168.1.1   pinode-1  pinode-1.local 
 ```
-  - custom.conf (add/modify following lines)
+-  - custom.conf (add/modify following lines)
 ```
   wificountry=mycountry
   wifissid=myssid
