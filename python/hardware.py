@@ -6,7 +6,7 @@ def setup_pcie():
 	# Check Model
 	model = os.system("cat /proc/device-tree/model")
 	input(model)
-	if "Raspberry Pi 5" or "Compute Module 5" in model:
+	if ("Raspberry Pi 5" or "Compute Module 5" in model):
 		input("PCIe Gen 3 is available, press enter to continue")
 		# Check Gen 3 not enabled
 	#	with open('/boot/firmware/config.txt', 'a+') as f:
