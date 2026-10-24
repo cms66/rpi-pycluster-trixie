@@ -27,7 +27,7 @@ def setup_pcie():
 				f.write("dtparam=pciex1")
 				f.write("dtparam=pciex1_gen=3")
 				input("PCIe Gen 3 enabled (reboot required), press enter to continue")
-				reboot
+				os.system("reboot")
 	else:
 		input("PCIe Gen 3 not available, press enter to continue")
 	
