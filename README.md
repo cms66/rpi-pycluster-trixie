@@ -57,7 +57,7 @@ You can then use bash aliases
     - Install NFS Server
     - Add local exports
     -   - System (default is /usr/local)
-        - Data (default is /data)
+        - Data (default is /data/current)
 - Environment Modules
 -   - Install Server
 - OpenCV
