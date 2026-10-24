@@ -11,6 +11,7 @@ arrconf = {}
 # Menus
 mnuMainFull = [
 "Setup - Main menu#",
+"System summary#show_system_summary()",
 "Update setup#update_setup()",
 "Update system#update_system()",
 "Hardware#show_menu(pvar.mnuHardwareFull)",
@@ -18,7 +19,7 @@ mnuMainFull = [
 "Environment Modules#show_menu(pvar.mnuModulesFull)",
 "OpenCV#setup_opencv()",
 "Test#test_func()",
-"System summary#show_system_summary()",
+
 "Back|Quit#"]
 
 mnuHardwareFull=[
