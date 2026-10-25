@@ -40,6 +40,7 @@ def add_nfs_export():
 	else:
 		input("Invalid entry - press enter to continue")
 		return
+	print(f"{defdir}")
 	usrdir = input(f"Path of directory to be shared, press enter for default = {defdir}: ")
 	nfsdir = defdir if usrdir <= "" else usrdir
 	# Check exports + add entry
