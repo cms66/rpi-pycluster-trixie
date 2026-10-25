@@ -40,7 +40,7 @@ def add_nfs_export():
 	else:
 		input("Invalid entry - press enter to continue")
 		return
-	usrdir = input(f"Path of directory to be shared (press enter for default = {defdir}): ")
+	usrdir = input(f"Path of directory to be shared, press enter for default = {defdir}: ")
 	nfsdir = defdir if usrdir <= "" else usrdir
 	# Check exports + add entry
 	exp = pgen.check_file("/etc/exports", nfsdir)
