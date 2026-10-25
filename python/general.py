@@ -84,6 +84,9 @@ def setup_opencv():
 		input("OpenCV server install done - press enter to continue")
 	elif usropt == "c": # Client install
 		check_file("/etc/fstab", "/usr/local")
+		if check_file("/etc/fstab", "/usr/local") == "NOTEXT":
+			with open("/etc/fstab","a+") as f:
+				f.write("pinode-1:/usr/local /usr/local    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0")
 		#os.system("apt-get -y install " + strdep)
 		#os.system("ldconfig")
 		input("OpenCV client install done - press enter to continue")
