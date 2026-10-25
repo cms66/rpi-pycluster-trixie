@@ -48,3 +48,9 @@ mnuModulesFull=[
 "Install - Server#pmod.install_modules_server()",
 "Install - Client#pmod.install_modules_client()",
 "Back|Quit#"]
+
+mnuSDMFull=[
+"Setup - SDM menu#",
+"Install - Server#psdm.setup_sdm_server()",
+"Install - Client#psdm.setup_sdm_client()",
+"Back|Quit#"]
