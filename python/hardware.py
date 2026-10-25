@@ -5,7 +5,7 @@ import python.variables as pvar
 def setup_pcie():
 	# Check Model
 	with open("/proc/device-tree/model", "rb") as f:
-    model = f.read().rstrip(b"\0").decode()
+		model = f.read().rstrip(b"\0").decode()
 	if ("Raspberry Pi 5" or "Compute Module 5" in model):
 		input("PCIe Gen 3 is available, press enter to continue")
 		# Check Gen 3 not enabled
