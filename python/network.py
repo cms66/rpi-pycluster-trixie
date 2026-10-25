@@ -27,7 +27,7 @@ def install_nfs_server():
 	with open("/etc/default/nfs-kernel-server", "a") as f:
 		f.write("RPCMOUNTDOPTS='--manage-gids -N 2 -N 3'\n")
 		f.write("RPCNFSDOPTS='-N 2 -N 3'\n")
-	# os.system("ufw allow from 192.168.0.0/24 to any port nfs") # TODO or Not needed?
+	os.system("ufw allow from 192.168.0.0/24 to any port 2049 proto tcp")
 	input("NFS server install done - press enter to continue")
 
 def add_nfs_export():
