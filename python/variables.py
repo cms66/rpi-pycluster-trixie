@@ -53,4 +53,8 @@ mnuSDMFull=[
 "Setup - SDM menu#",
 "Install - Server#psdm.install_sdm_server()",
 "Install - Client#psdm.install_sdm_client()",
+"Update latest images#psdm.update_latest_images()",
+"Create image#psdm.create_image()",
+"Modify image#psdm.modify_image()",
+"Burn image#psdm.burn_image()",
 "Back|Quit#"]
