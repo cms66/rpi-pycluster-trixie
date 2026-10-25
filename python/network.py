@@ -34,7 +34,7 @@ def add_nfs_export():
 	# Check export type + location
 	usropt = input("System or Data export? (s/d): ").lower() 
 	if usropt == "s": # System export
-		defdir = pvar.arrconf['defsysdir'].strip
+		defdir = pvar.arrconf['defsysdir'].strip()
 	elif usropt == "d": # Data export
 		defdir = pvar.arrconf['defdatadir'].strip()
 	else:
