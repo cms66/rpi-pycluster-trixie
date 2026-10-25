@@ -40,28 +40,16 @@ def add_nfs_export():
 	else:
 		input("Invalid entry - press enter to continue")
 		return
-	print(f"{defdir}")
 	usrdir = input(f"Path of directory to be shared, press enter for default = {defdir}: ")
 	nfsdir = defdir if usrdir <= "" else usrdir
 	# Check exports + add entry
 	exp = pgen.check_file("/etc/exports", nfsdir)
 	if exp == "NOTEXT": # Add entry
-		#nfsdir1 = nfsdir.strip()
-		#input(nfsdir1)
-		#nfsdir2 = "".join(nfsdir1.splitlines())
-		#input(nfsdir2)
 		snet = pvar.arrconf['subnet'].strip()
-		input(snet)
-		#snet2 = "".join(snet1.splitlines())
-		#input(snet2)
-		#input(f"{nfsdir2} {snet2}")
-		input(f"{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)")
-		#strexp = "(rw,sync,no_subtree_check,no_root_squash)"
-		#print(strexp)
-		input("Continue?")
-		#strcmd = f"echo '{nfsdir} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports".strip()
-		#os.system(strcmd)
-		#os.system("systemctl daemon-reload")
+		strcmd = f"echo '{nfsdir} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports".strip()
+		input(strcmd)
+		os.system(strcmd)
+		os.system("systemctl daemon-reload")
 		input("Export created - press enter to continue")
 	elif exp == "TEXT":
 		input("Export exists - press enter to continue")
