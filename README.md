@@ -2,6 +2,7 @@
 Python setup and management for a home RPi cluster (64-bit Debian Trixie).
 
 ## Assumptions
+- One or more 64 bit Raspberry Pi available
 - Router is configured with reserved IP addresses. My example uses
   - Nodes - LAN = 192.168.1.1 to 192.168.1.99
   - Nodes - WiFi = 192.168.1.100 to 192.168.1.199
@@ -9,14 +10,14 @@ Python setup and management for a home RPi cluster (64-bit Debian Trixie).
   - Router = 192.168.1.254
 
 ## First setup (Server)
-- Burn image (latest 64 bit Lite version) using Raspberry Pi Imager or similar
+- Burn image (latest 64 bit Lite or Desktop version) using Raspberry Pi Imager or similar.
 - Remount drive (if needed)
 - Create files in visible partition
   - hosts.txt (add entries for nodes in your cluster, one per line)
 ```
 192.168.1.1   pinode-1  pinode-1.local 
 ```
--  - custom.conf (add/modify following lines)
+-  - custom.conf (add/modify following lines).
 ```
   wificountry=mycountry
   wifissid=myssid
@@ -53,13 +54,29 @@ You can then use bash aliases
 - Hardware
 -  - If you have Raspberry Pi 5 or Compute Module 5, you can increase PCIe speed from Gen 2 (5 GT/s) to Gen 3 (8 GT/s)
 - Network
--   - Create user SSH keys
+-   - Create user SSH keys (exit and connect/login to check)
     - Install NFS Server
     - Add local exports
     -   - System (default is /usr/local)
         - Data (default is /data/current)
 - Environment Modules
 -   - Install Server
+- SDM
+-   - Install Server
 - OpenCV
 -   - Install Server
 ## Third setup (Client/Node)
+- Open setup menu
+- Hardware
+-  - If you have Raspberry Pi 5 or Compute Module 5, you can increase PCIe speed from Gen 2 (5 GT/s) to Gen 3 (8 GT/s)
+- Network
+-   - Create user SSH keys (exit and connect/login to check)
+    - Add remote mounts
+    -   - System (default is /usr/local)
+        - Data (default is /data/current)
+- Environment Modules
+-   - Install Client
+- SDM
+-   - Install Client
+- OpenCV
+-   - Install Client
