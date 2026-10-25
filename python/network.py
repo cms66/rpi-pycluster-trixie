@@ -46,8 +46,6 @@ def add_nfs_export():
 	exp = pgen.check_file("/etc/exports", nfsdir)
 	if exp == "NOTEXT": # Add entry
 		snet = pvar.arrconf['subnet'].strip()
-		#strcmd = f"echo '{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports"
-		#input(f"echo '{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports")
 		os.system(f"echo '{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports")
 		os.system("systemctl daemon-reload")
 		input("Export created - press enter to continue")
@@ -59,30 +57,35 @@ def add_nfs_export():
 
 def add_nfs_remote():
 	remnode = input("Remote node: ")
-	usropt = input("System mount or Data share? (s/d): ").lower()
-	if usropt == "s": # System share
-		defdir = pvar.arrconf['defsysdir']
-		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
-		nfsdir = defdir if usrdir <= "" else usrdir
-	elif usropt == "d": # Data share
-		defdir = pvar.arrconf['defdatadir']
-		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defdatadir'] + "): ")
-		nfsdir = defdir if usrdir <= "" else usrdir
+	usropt = input("System mount or Data mount? (s/d): ").lower()
+	if usropt == "s": # System mount
+		defdir = pvar.arrconf['defsysdir'].strip()
+	elif usropt == "d": # Data mount
+		defdir = pvar.arrconf['defdatadir'].strip()
 	else:
 		input("Invalid entry - press enter to continue")
 		return
-	print("Remote node: " + remnode)
-	print("Def Remote directory: " + defdir)
-	print("User Remote directory: " + usrdir)
-	print("NFS Remote directory: " + nfsdir)
-	with open("/etc/fstab", "a") as f:
-		strmount = f"{remnode}:{nfsdir}"
-		#strmount = f"{remnode}:{nfsdir} {nfsdir} nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0".strip()
-		print("str = " + strmount)
-		#strmount = remnode + ":" + nfsdir + " " + nfsdir + " nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0"
-		"".join(strmount.splitlines())
-		print("str = " + strmount)
-		input("Mount = " + strmount + " - press enter to continue")
-		f.write(strmount)
+	usrdir = input(f"Path of directory to be mounted, press enter for default = {defdir}: ")
+	nfsdir = defdir if usrdir <= "" else usrdir
+	# Check fstab + add entry
+	mnt = pgen.check_file("/etc/fstab", nfsdir)
+	if mnt == "NOTEXT": # Add entry
+		#{remnode}:{nfsdir} {nfsdir}    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0
+		os.system(f"echo '{remnode}:{nfsdir} {nfsdir}    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0' >> /etc/fstab")
+		os.system("systemctl daemon-reload")
+		input("Export created - press enter to continue")
+	elif mnt == "TEXT":
+		input("Mount exists - press enter to continue")
+	elif mnt == "NOFILE":
+		input("File not found - press enter to continue")
+	#with open("/etc/fstab", "a") as f:
+	#	strmount = f"{remnode}:{nfsdir}"
+	#	#strmount = f"{remnode}:{nfsdir} {nfsdir} nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0".strip()
+	#	print("str = " + strmount)
+	#	#strmount = remnode + ":" + nfsdir + " " + nfsdir + " nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0"
+	#	"".join(strmount.splitlines())
+	#	print("str = " + strmount)
+	#	input("Mount = " + strmount + " - press enter to continue")
+	#	f.write(strmount)
 	#echo "$remnode:$mntdir $mntdir    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0" >> /etc/fstab
 	input("NFS remote mount done - press enter to continue")
