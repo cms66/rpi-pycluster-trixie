@@ -18,8 +18,8 @@ mnuMainFull = [
 "Network#show_menu(pvar.mnuNetworkFull)",
 "Environment Modules#show_menu(pvar.mnuModulesFull)",
 "OpenCV#setup_opencv()",
+"SDM#show_menu(pvar.mnuSDMFull)",
 "Test#test_func()",
-
 "Back|Quit#"]
 
 mnuHardwareFull=[
