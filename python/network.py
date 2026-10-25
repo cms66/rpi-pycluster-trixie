@@ -42,7 +42,7 @@ def add_nfs_export():
 		usrdir = input(struser)
 		nfsdir = defdir if usrdir <= "" else usrdir
 	elif usropt == "d": # Data export
-		defdir = pvar.arrconf['defdatadir']
+		defdir = pvar.arrconf['defdatadir'].strip()
 		usrdir = input("Path of directory to be shared (press enter for default = " + defdir + ")\n: ")
 		nfsdir = defdir if usrdir <= "" else usrdir
 	else:
