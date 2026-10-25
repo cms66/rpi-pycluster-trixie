@@ -46,9 +46,9 @@ def add_nfs_export():
 	exp = pgen.check_file("/etc/exports", nfsdir)
 	if exp == "NOTEXT": # Add entry
 		snet = pvar.arrconf['subnet'].strip()
-		strcmd = f"echo '{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports"
-		input(strcmd)
-		os.system(strcmd)
+		#strcmd = f"echo '{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports"
+		#input(f"echo '{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports")
+		os.system(f"echo '{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports")
 		os.system("systemctl daemon-reload")
 		input("Export created - press enter to continue")
 	elif exp == "TEXT":
