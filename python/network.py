@@ -70,22 +70,11 @@ def add_nfs_remote():
 	# Check fstab + add entry
 	mnt = pgen.check_file("/etc/fstab", nfsdir)
 	if mnt == "NOTEXT": # Add entry
-		#{remnode}:{nfsdir} {nfsdir}    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0
 		os.system(f"echo '{remnode}:{nfsdir} {nfsdir}    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0' >> /etc/fstab")
 		os.system("systemctl daemon-reload")
-		input("Export created - press enter to continue")
+		input("Mount created - press enter to continue")
 	elif mnt == "TEXT":
 		input("Mount exists - press enter to continue")
 	elif mnt == "NOFILE":
 		input("File not found - press enter to continue")
-	#with open("/etc/fstab", "a") as f:
-	#	strmount = f"{remnode}:{nfsdir}"
-	#	#strmount = f"{remnode}:{nfsdir} {nfsdir} nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0".strip()
-	#	print("str = " + strmount)
-	#	#strmount = remnode + ":" + nfsdir + " " + nfsdir + " nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0"
-	#	"".join(strmount.splitlines())
-	#	print("str = " + strmount)
-	#	input("Mount = " + strmount + " - press enter to continue")
-	#	f.write(strmount)
-	#echo "$remnode:$mntdir $mntdir    nfs4 rw,relatime,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,local_lock=none 0 0" >> /etc/fstab
 	input("NFS remote mount done - press enter to continue")
