@@ -10,7 +10,7 @@ def setup_pcie():
 		input("PCIe Gen 3 is available, press enter to continue")
 		# Check Gen 3 not enabled
 		with open('/boot/firmware/config.txt', 'a+') as f:
-			content = f.read()
+			content = f.read().rstrip(b"\0").decode()
 			if "dtparam=pciex1" in content:
 				input("PCIe Gen 3 already enabled, press enter to continue")
 			else:
