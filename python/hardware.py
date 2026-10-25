@@ -9,7 +9,7 @@ def setup_pcie():
 	if "Raspberry Pi 5" in model or "Compute Module 5" in model:
 		input("PCIe Gen 3 is available, press enter to continue")
 		# Check Gen 3 not enabled
-		with open('/boot/firmware/config.txt', 'a+') as f:
+		with open('/boot/firmware/config.txt', 'r+') as f:
 			content = f.read()
 			if "dtparam=pciex1" in content:
 				input("PCIe Gen 3 already enabled, press enter to continue")
