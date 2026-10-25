@@ -51,6 +51,6 @@ mnuModulesFull=[
 
 mnuSDMFull=[
 "Setup - SDM menu#",
-"Install - Server#psdm.setup_sdm_server()",
-"Install - Client#psdm.setup_sdm_client()",
+"Install - Server#psdm.install_sdm_server()",
+"Install - Client#psdm.install_sdm_client()",
 "Back|Quit#"]
