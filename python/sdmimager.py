@@ -12,4 +12,16 @@ def install_sdm_server():
 	input("SDM server install done, press enter to continue")
 	
 def install_sdm_client():
-	input("TODO, press enter to continue")
+	input("install client - TODO, press enter to continue")
+
+def update_latest_images():
+	input("update latest images - TODO, press enter to continue")
+
+def create_image():
+	input("create image - TODO, press enter to continue")
+
+def modify_image():
+	input("modify image - TODO, press enter to continue")
+
+def burn_image():
+	input("burn image - TODO, press enter to continue")
