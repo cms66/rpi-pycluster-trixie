@@ -9,6 +9,7 @@ import python.hardware as phdw
 import python.network as pnet
 import python.security as psec
 import python.envmod as pmod
+import python.sdmimager as psdm
 
 def main():
 	pgen.read_config()
