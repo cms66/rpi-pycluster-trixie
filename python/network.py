@@ -34,36 +34,28 @@ def add_nfs_export():
 	# Check export type + location
 	usropt = input("System or Data export? (s/d): ").lower() 
 	if usropt == "s": # System export
-		defdir = pvar.arrconf['defsysdir']
-		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'].strip() + "): ")
-		#str = "Path of directory to be shared (press enter for default " + pvar.arrconf['defsysdir'] + "): "
-		#usrdir = input(f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): ")
-		#struser = f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): "
-		#usrdir = input(struser)
-		nfsdir = defdir if usrdir <= "" else usrdir
+		defdir = pvar.arrconf['defsysdir'].strip
 	elif usropt == "d": # Data export
 		defdir = pvar.arrconf['defdatadir'].strip()
-		usrdir = input("Path of directory to be shared (press enter for default = " + defdir + "): ")
-		nfsdir = defdir if usrdir <= "" else usrdir
 	else:
 		input("Invalid entry - press enter to continue")
 		return
+	usrdir = input("Path of directory to be shared (press enter for default = " + defdir + "): ")
+	nfsdir = defdir if usrdir <= "" else usrdir
 	# Check exports + add entry
 	exp = pgen.check_file("/etc/exports", nfsdir)
 	if exp == "NOTEXT": # Add entry
-		nfsdir1 = nfsdir.strip()
-		input(nfsdir1)
-		nfsdir2 = "".join(nfsdir1.splitlines())
-		input(nfsdir2)
-		snet = "{pvar.arrconf['subnet']}"
+		#nfsdir1 = nfsdir.strip()
+		#input(nfsdir1)
+		#nfsdir2 = "".join(nfsdir1.splitlines())
+		#input(nfsdir2)
+		snet = pvar.arrconf['subnet'].strip()
 		input(snet)
-		snet1 = snet.strip()
-		input(snet1)
-		snet2 = "".join(snet1.splitlines())
-		input(snet2)
-		input(f"{nfsdir2} {snet2}")
-		input(f"{nfsdir2} {snet2}(rw,sync,no_subtree_check,no_root_squash)")
-		#strexp = f"{nfsdir2} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)"
+		#snet2 = "".join(snet1.splitlines())
+		#input(snet2)
+		#input(f"{nfsdir2} {snet2}")
+		input(f"{nfsdir} {snet}(rw,sync,no_subtree_check,no_root_squash)")
+		#strexp = "(rw,sync,no_subtree_check,no_root_squash)"
 		#print(strexp)
 		input("Continue?")
 		#strcmd = f"echo '{nfsdir} {pvar.arrconf['subnet']}(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports".strip()
