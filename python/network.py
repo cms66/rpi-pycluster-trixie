@@ -35,11 +35,11 @@ def add_nfs_export():
 	usropt = input("System or Data export? (s/d): ").lower() 
 	if usropt == "s": # System export
 		defdir = pvar.arrconf['defsysdir']
-		#usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'] + "): ")
+		usrdir = input("Path of directory to be shared (press enter for default = " + pvar.arrconf['defsysdir'].strip() + "): ")
 		#str = "Path of directory to be shared (press enter for default " + pvar.arrconf['defsysdir'] + "): "
 		#usrdir = input(f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): ")
-		struser = f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): "
-		usrdir = input(struser)
+		#struser = f"Path of directory to be shared (press enter for default {pvar.arrconf['defsysdir']}): "
+		#usrdir = input(struser)
 		nfsdir = defdir if usrdir <= "" else usrdir
 	elif usropt == "d": # Data export
 		defdir = pvar.arrconf['defdatadir'].strip()
